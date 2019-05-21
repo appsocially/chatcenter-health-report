@@ -9,7 +9,7 @@ function handleAuthentication(operation, forward) {
   let extendedHeaders: any = {};
 
   // Token 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTE0ODAwODAwfQ.PbiOFB91HTI7NbaBUXl2XilyUZmHarf89Xr2s03VjUI';
+  const token = '';
   extendedHeaders['Authorization'] = `Bearer ${token}`;
 
   // Finally
