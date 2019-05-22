@@ -1,8 +1,7 @@
-import { ApolloClient } from 'apollo-client';
 export interface HealthReporterOptions {
     name: string;
     interval?: number;
-    client: ApolloClient<any>;
+    client: any;
 }
 export declare class HealthReporter {
     options: HealthReporterOptions;

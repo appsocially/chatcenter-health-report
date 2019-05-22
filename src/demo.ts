@@ -1,42 +1,42 @@
-import { HealthReporter } from "./";
-import ApolloClient from "apollo-client";
-import { ApolloLink } from "apollo-link";
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
-import fetch from 'node-fetch';
+// import { HealthReporter } from "./";
+// import ApolloClient from "apollo-client";
+// import { ApolloLink } from "apollo-link";
+// import { InMemoryCache } from 'apollo-cache-inmemory';
+// import { HttpLink } from 'apollo-link-http';
+// import fetch from 'node-fetch';
 
-function handleAuthentication(operation, forward) {
-  let extendedHeaders: any = {};
+// function handleAuthentication(operation, forward) {
+//   let extendedHeaders: any = {};
 
-  // Token 
-  const token = '';
-  extendedHeaders['Authorization'] = `Bearer ${token}`;
+//   // Token 
+//   const token = '';
+//   extendedHeaders['Authorization'] = `Bearer ${token}`;
 
-  // Finally
-  operation.setContext(({ headers }) => ({ headers: {
-    ...headers,
-    ...extendedHeaders
-  }}));
-  return forward(operation);
-}
+//   // Finally
+//   operation.setContext(({ headers }) => ({ headers: {
+//     ...headers,
+//     ...extendedHeaders
+//   }}));
+//   return forward(operation);
+// }
 
 
-function createClient(): ApolloClient<any> {
-  const link = new HttpLink({ 
-    uri: 'http://192.168.1.120:3000/graphql', 
-    fetch, 
-  });
+// function createClient(): ApolloClient<any> {
+//   const link = new HttpLink({ 
+//     uri: 'http://192.168.1.120:3000/graphql', 
+//     fetch, 
+//   });
 
-  const authLink = new ApolloLink((operation, forward) => handleAuthentication(operation, forward));
+//   const authLink = new ApolloLink((operation, forward) => handleAuthentication(operation, forward));
   
-  return new ApolloClient<any>({
-    link: ApolloLink.from([ authLink, link ]),
-    cache: new InMemoryCache()
-  });
-}
+//   return new ApolloClient<any>({
+//     link: ApolloLink.from([ authLink, link ]),
+//     cache: new InMemoryCache()
+//   });
+// }
 
-let reporter = new HealthReporter({
-  name: 'worker',
-  client: createClient()
-});
-reporter.start();
+// let reporter = new HealthReporter({
+//   name: 'worker',
+//   client: createClient()
+// });
+// reporter.start();

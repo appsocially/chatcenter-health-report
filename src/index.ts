@@ -1,10 +1,9 @@
-import { ApolloClient } from 'apollo-client';
 import gql from 'graphql-tag';
 
 export interface HealthReporterOptions {
   name: string;
   interval?: number;
-  client: ApolloClient<any>;
+  client: any;
 }
 
 export class HealthReporter {
